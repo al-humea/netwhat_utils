@@ -6,7 +6,7 @@
 /*   By: al-humea <al-humea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 15:24:46 by al-humea          #+#    #+#             */
-/*   Updated: 2021/04/06 16:04:49 by al-humea         ###   ########.fr       */
+/*   Updated: 2021/04/06 17:25:50 by al-humea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,20 +70,20 @@ int	main(void)
 	current->broadcast[0] = 0;
 	current->subnet[0] = 0;
 	current->referenceable = 0;
-//	printf("\e[1;1H\e[2J");
+	printf("\e[1;1H\e[2J\n");
 	printf("Entrez l'ip	=	");
 	scanf("%d.%d.%d.%d", &ip[0], &ip[1], &ip[2], &ip[3]);
 	printf("CIDR		=	");
 	scanf("%d", &cidr);
 	write(1, "\n", 1);
-	store_ip_infos(current ,ip, cidr);
+	store_ip_infos(current ,ip, cidr); // stocke les infos déductibles de l'ip et du masque de sous réseau
 	write(1, "\n", 1);
 	printf("Addresse de sous réseau	=	");
 	read_ip(current->subnet);
 	printf("Addresse de broadcast	=	");
 	read_ip(current->broadcast);
 	printf("Addresses référençables	=	");
-	display_referenceable(current, cidr);
+	display_referenceable(current, cidr); // display les addresses référençables et leurs compte
 	free(current);
 	return (0);
 }
